@@ -14,3 +14,4 @@ echo "alias ll='ls -alshF'" | sudo tee -a /root/.bashrc > /dev/null
 echo 'PS1="[\u@\h:\W]#"' | sudo tee -a /root/.bashrc > /dev/null
 echo "alias poweroff='sync && sync && poweroff'"  | sudo tee -a /root/.bashrc > /dev/null
 echo "alias reboot='sync && sync && reboot'"  | sudo tee -a /root/.bashrc > /dev/null
+sudo timedatectl set-timezone Asia/Tokyo
