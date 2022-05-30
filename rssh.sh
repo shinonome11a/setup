@@ -31,8 +31,8 @@ EOF
 chmod +x ~/ssh.sh
 
 echo "### import ssh config"
-mkdir .ssh
-chmod 700 .ssh
+mkdir ~/.ssh
+chmod 700 ~/.ssh
 cat << EOF | tee -a ~/.ssh/config
 ServerAliveInterval 10
 TCPKeepAlive yes
