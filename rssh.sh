@@ -23,10 +23,10 @@ echo "### import ssh.sh"
 cat << EOF | tee ~/ssh.sh
 # vps
 COMMAND="ssh -N -f -R ${1}:localhost:22 vps"
-pgrep -f -x "$COMMAND" > /dev/null 2>&1 || echo ${COMMAND}
+pgrep -f -x "\${COMMAND}" > /dev/null 2>&1 || \${COMMAND}
 # sh
 COMMAND="ssh -N -f -R ${1}:localhost:22 sh"
-pgrep -f -x "$COMMAND" > /dev/null 2>&1 || echo ${COMMAND}
+pgrep -f -x "\${COMMAND}" > /dev/null 2>&1 || \${COMMAND}
 EOF
 chmod +x ~/ssh.sh
 
