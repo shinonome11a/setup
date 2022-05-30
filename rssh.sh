@@ -15,8 +15,8 @@ echo "### import ssh"
 cat << EOF | sudo tee /etc/cron.d/ssh
 * * * * * ${USER} /home/near/ssh.sh
 #30 5 * * * root /sbin/reboot
-55 * * * * root kill $(pgrep -f -x "ssh -N -f -R ${1}:localhost:22 vps")
-55 * * * * root kill $(pgrep -f -x "ssh -N -f -R ${1}:localhost:22 sh")
+55 * * * * root kill \$(pgrep -f -x "ssh -N -f -R ${1}:localhost:22 vps")
+55 * * * * root kill \$(pgrep -f -x "ssh -N -f -R ${1}:localhost:22 sh")
 EOF
 
 echo "### import ssh.sh"
