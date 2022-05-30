@@ -13,7 +13,7 @@ EOF
 
 echo "### import ssh"
 cat << EOF | sudo tee /etc/cron.d/ssh
-* * * * * ${USER} /home/near/ssh.sh
+* * * * * ${USER} /home/${USER}/ssh.sh
 #30 5 * * * root /sbin/reboot
 55 * * * * root kill \$(pgrep -f -x "ssh -N -f -R ${1}:localhost:22 vps")
 55 * * * * root kill \$(pgrep -f -x "ssh -N -f -R ${1}:localhost:22 sh")
@@ -51,6 +51,6 @@ EOF
 
 echo "### generate ssh key w"
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/w -N ""
-cat w.pub
+cat ~/.ssh/w.pub
 ssh-keygen -t rsa -b 4096 -f ~/.ssh/n
-cat n.pub
+cat ~/.ssh/n.pub
