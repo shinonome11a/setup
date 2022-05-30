@@ -31,6 +31,8 @@ EOF
 chmod +x ~/ssh.sh
 
 echo "### import ssh config"
+mkdir .ssh
+chmod 700 .ssh
 cat << EOF | tee -a ~/.ssh/config
 ServerAliveInterval 10
 TCPKeepAlive yes
@@ -48,8 +50,7 @@ Host sh
 EOF
 
 echo "### generate ssh key w"
-cd ~/.ssh
-ssh-keygen -t rsa -b 4096 -f w -N ""
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/w -N ""
 cat w.pub
-ssh-keygen -t rsa -b 4096 -f n
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/n
 cat n.pub
