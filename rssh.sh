@@ -42,11 +42,15 @@ Host vps
   User www
   Port 2201
   Identityfile ~/.ssh/w
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
 Host sh
   Hostname sh.gamagaeru.com
   User www
   Port 2201
   Identityfile ~/.ssh/w
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
 EOF
 
 echo "### generate ssh key w"
