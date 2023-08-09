@@ -54,7 +54,7 @@ Host sh
 EOF
 
 echo "### generate ssh key w"
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/w -N ""
+ssh-keygen -t ed25519 -f ~/.ssh/w -N ""
 cat ~/.ssh/w.pub
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/n
+ssh-keygen -t ed25519 -f ~/.ssh/n
 cat ~/.ssh/n.pub
