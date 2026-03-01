@@ -4,15 +4,19 @@ if [ $# != 1 ]; then
    echo '$ ./rssh.sh [port]'
    exit 1
 fi
-echo "### import sshkey"
-cat << EOF | sudo tee /etc/cron.d/sshkey
-SHELL=/bin/sh
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-* * * * * ${USER} curl -sf https://raw.githubusercontent.com/shinonome11a/authorized_keys/main/n.key > /tmp/authorized_keys && cat /tmp/authorized_keys > /home/${USER}/.ssh/authorized_keys && date > /home/${USER}/sshdate.txt
-EOF
+#echo "### import sshkey"
+#cat << EOF | sudo tee /etc/cron.d/sshkey
+#SHELL=/bin/sh
+#MAILTO=""
+#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+#* * * * * ${USER} curl -sf https://raw.githubusercontent.com/shinonome11a/authorized_keys/main/n.key > /tmp/authorized_keys && cat /tmp/authorized_keys > /home/${USER}/.ssh/authorized_keys && date > /home/${USER}/sshdate.txt
+#EOF
 
 echo "### import ssh"
 cat << EOF | sudo tee /etc/cron.d/ssh
+SHELL=/bin/sh
+MAILTO=""
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 * * * * * ${USER} /home/${USER}/ssh.sh
 #30 5 * * * root /sbin/reboot
 55 * * * * root kill \$(pgrep -f -x "ssh -N -f -R ${1}:localhost:22 vps")
@@ -56,5 +60,6 @@ EOF
 echo "### generate ssh key w"
 ssh-keygen -t ed25519 -f ~/.ssh/w -N ""
 cat ~/.ssh/w.pub
+echo "### generate ssh key n"
 ssh-keygen -t ed25519 -f ~/.ssh/n
 cat ~/.ssh/n.pub
