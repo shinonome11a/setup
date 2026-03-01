@@ -6,7 +6,7 @@ echo "alias ll='ls -alshF'" >> ${HOME}/.bashrc
 echo "alias reboot='sync && sync && reboot'" >> ${HOME}/.bashrc
 echo "alias poweroff='sync && sync && poweroff'" >> ${HOME}/.bashrc
 echo 'PS1="[\u@\h:\W]%"' >> ${HOME}/.bashrc
-source ${HOME}/.bashrc
+#source ${HOME}/.bashrc
 echo "alias cl='clear'" | sudo tee -a /root/.bashrc > /dev/null
 echo "alias cle='clear'" | sudo tee -a /root/.bashrc > /dev/null
 echo "alias clea='clear'" | sudo tee -a /root/.bashrc > /dev/null
